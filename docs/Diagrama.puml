@@ -1,0 +1,59 @@
+@startuml SpaceInvaders
+class Nave
+class Vida
+class Alien
+class Score
+class Highscore
+class Menu
+class Barrera
+class Sonido
+class Animacion
+class Proyectil
+class Pantalla
+class Juego
+class Nivel
+class Bonus
+class Jugador
+class Borde 
+class Color
+class Verde 
+class Negro 
+class Blanco 
+class SpaceInvaders
+class Fondo
+
+SpaceInvaders --|> Juego
+Verde --|> Color
+Negro --|> Color
+Blanco --|> Color
+Jugador o-- Nave
+Pantalla *-- Borde
+Juego o-- Pantalla
+Juego *-- Menu
+Juego *-- Nivel
+Juego *-- Highscore
+Juego *-- Jugador
+Nivel *-- Score
+Nivel *-- Barrera
+Nivel *-- Nave
+Nivel *-- Alien
+Nivel *-- Bonus
+Nave o-- Bonus
+Nave *-- Vida
+Nave o-- Proyectil
+Nave *-- Animacion
+Nave *-- Sonido
+Nave *-- Verde
+Alien o-- Proyectil
+Alien *-- Animacion
+Alien *-- Sonido
+Alien *-- Blanco
+Proyectil o-- Vida
+Proyectil o-- Score
+Proyectil o-- Barrera
+Proyectil *-- Sonido
+Barrera *-- Animacion
+Barrera *-- Verde
+Fondo *-- Negro
+
+@enduml

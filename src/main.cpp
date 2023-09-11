@@ -5,7 +5,7 @@ int main(int argc, char const *argv[])
 {
     Mascota m1, m2, m3;
 
-    std::cout<<"Juego de mascotas"<<std::endl;
+    std::cout << "Juego de mascotas" << std::endl;
 
     m1.EstablecerNombre("Raul");
     m2.EstablecerNombre("Pepe");
