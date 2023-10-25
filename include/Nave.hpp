@@ -6,7 +6,7 @@
 
 using namespace std;
 
-class Nave
+class Nave : public Dibujo
 {
 private:
     /* data */
@@ -24,16 +24,19 @@ public:
 
     ~Nave() {}
 
-    void Avanzar(){
+    void Avanzar()
+    {
         this->posicion.DesplazarX(1);
     }
 
-    void CambiarDireccion(){
+    void CambiarDireccion()
+    {
         this->posicion.CambiarDireccionX();
         this->posicion.DesplazarX(1);
     }
 
-    Vector LeerPosicion(){
+    Vector LeerPosicion()
+    {
         return this->posicion;
     }
 };

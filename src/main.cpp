@@ -18,6 +18,7 @@ int main(int argc, char const *argv[])
 
     //Lista de dibujos
     list<Dibujo *> dibujos;
+    Ventana *ventana = new Ventana();
 
     //Lista de actualizables
     list<Actualizable *> actualizables;
@@ -27,11 +28,11 @@ int main(int argc, char const *argv[])
         int key = getch();
         if (key == 'a' || key == KEY_LEFT)
         {
-            nave->Avanzar();
+            //nave->Avanzar();
         }
         if (key == 'd' || key == KEY_RIGHT)
         {
-            nave->CambiarDireccion();
+            //nave->CambiarDireccion();
         }
         if (key== ' ')
         {

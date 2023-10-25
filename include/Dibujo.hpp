@@ -6,24 +6,29 @@
 #include <curses.h>
 #include <Vector.hpp>
 
+using namespace std;
+
 class Dibujo
 {
 private:
     string directorio;
     bool is_open;
     fstream archivo;
+
 protected:
     Vector posicion;
+
 public:
     Dibujo(int x, int y, string recurso)
     {
         this->directorio = "./data/" + recurso + ".txt";
         this->is_open = false;
         this->archivo.open(this->directorio, ios::in);
-        this->posicion=Vector(x, y);
+        this->posicion = Vector(x, y);
     }
 
-    Dibujo(string recurso) : Dibujo(0, 0, recurso){
+    Dibujo(string recurso) : Dibujo(0, 0, recurso)
+    {
     }
 
     ~Dibujo()

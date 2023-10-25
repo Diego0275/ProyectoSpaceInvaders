@@ -5,30 +5,36 @@
 #include <Actualizable.hpp>
 #include <Dibujo.hpp>
 
+using namespace std;
+
 class Ventana
 {
 private:
-    
+    int x, y;
+    bool close;
+
 public:
-    Ventana() {
-        //Inicializar pantalla
+    Ventana()
+    {
+        // Inicializar pantalla
         initscr();
 
-        //Eliminar cursor de la pantalla
+        // Eliminar cursor de la pantalla
         noecho();
         curs_set(FALSE);
 
-        //No bloquear consola
+        // No bloquear consola
         cbreak();
         timeout(10);
         keypad(stdscr, TRUE);
 
-        //Inicializar clase
+        // Inicializar clase
         getmaxyx(stdscr, y, x);
         close = false;
     }
 
-    ~Ventana(){
+    ~Ventana()
+    {
         keypad(stdscr, FALSE);
         endwin();
     }
@@ -43,26 +49,26 @@ public:
         this->close = true;
     }
 
-    void Actualizar(list<Actualizable*> listaActualizables)
+    void Actualizar(list<Actualizable *> listaActualizables)
     {
-        for(auto &&iterador : listaActualizables)
+        for (auto &&iterador : listaActualizables)
         {
             iterador->Actualizar();
         }
-        
+
         usleep(41000);
     }
 
-    void Dibujar(list<Dibujo*> listaDibujos)
+    void Dibujar(list<Dibujo *> listaDibujos)
     {
         clear();
-        
+
         box(stdscr, '*', '~');
         for (auto &&dibujo : listaDibujos)
         {
             dibujo->Dibujar();
         }
-        
+
         refresh();
     }
 };
