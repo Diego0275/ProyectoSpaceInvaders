@@ -1,11 +1,8 @@
-CXX = x86_64-w64-mingw32-g++ #Windows
-#CXX = g++ #Linux
+bin/cow : src/main.cpp	
+	c++ src/main.cpp -o bin/main -I include -lcurses
 
-runMascota : bin/mascota
-	./bin/mascota
+run : bin/main
+	./bin/main
 
-bin/mascota : src/main.cpp include/Mascota.hpp
-	$(CXX) src/main.cpp -o bin/mascota -I include
-
-cleanMascota : bin/mascota
-	rm bin/mascota
+# cleanMascota : bin/main
+# 	rm bin/main

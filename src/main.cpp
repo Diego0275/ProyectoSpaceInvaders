@@ -1,18 +1,49 @@
 #include <iostream>
-#include <Mascota.hpp>
+#include <string>
+#include <filesystem>
+#include <fstream>
+#include <list>
+#include <curses.h>
+#include <Actualizable.hpp>
+#include <Ventana.hpp>
+#include <Nave.hpp>
+#include <Barrera.hpp>
+#include <Proyectil.hpp>
+#include <Alien.hpp>
+#include <Bonus.hpp>
 
 int main(int argc, char const *argv[])
 {
-    Mascota m1, m2, m3;
+    //Objetos
 
-    std::cout << "Juego de mascotas" << std::endl;
+    //Lista de dibujos
+    list<Dibujo *> dibujos;
 
-    m1.EstablecerNombre("Raul");
-    m2.EstablecerNombre("Pepe");
-    m3.EstablecerNombre("Rodolfo");
-    m1.DecirNombre();
-    m2.DecirNombre();
-    m3.DecirNombre();
+    //Lista de actualizables
+    list<Actualizable *> actualizables;
+
+    while (!ventana->DeboCerrar())
+    {
+        int key = getch();
+        if (key == 'a' || key == KEY_LEFT)
+        {
+            nave->Avanzar();
+        }
+        if (key == 'd' || key == KEY_RIGHT)
+        {
+            nave->CambiarDireccion();
+        }
+        if (key== ' ')
+        {
+            // Proyectil* p = new Proyectil(->LeerPosicion());
+            // dibujos.push_back();
+            // actualizables.push_back();
+        }
+        
+        ventana->Dibujar(dibujos);
+        ventana->Actualizar(actualizables);
+    }
+    
 
     return 0;
 }
