@@ -15,30 +15,48 @@
 int main(int argc, char const *argv[])
 {
     //Objetos
+    Ventana *ventana = new Ventana();
+    Nave *nave = new Nave(18, 20);
+    Alien *alien1 = new Alien();
+    Alien *alien2 = new Alien(10, 0);
+    Alien *alien3 = new Alien(20, 0);
+    Alien *alien4 = new Alien(30, 0);
+    Barrera *barrera1 = new Barrera(8, 10);
+    Barrera *barrera2 = new Barrera(22, 10);
 
     //Lista de dibujos
     list<Dibujo *> dibujos;
-    Ventana *ventana = new Ventana();
+    dibujos.push_back(barrera1);
+    dibujos.push_back(barrera2);
+    dibujos.push_back(alien1);
+    dibujos.push_back(alien2);
+    dibujos.push_back(alien3);
+    dibujos.push_back(alien4);
+    dibujos.push_front(nave);
 
     //Lista de actualizables
     list<Actualizable *> actualizables;
+    actualizables.push_back(alien1);
+    actualizables.push_back(alien2);
+    actualizables.push_back(alien3);
+    actualizables.push_back(alien4);
 
     while (!ventana->DeboCerrar())
     {
         int key = getch();
         if (key == 'a' || key == KEY_LEFT)
         {
-            //nave->Avanzar();
+            nave->Avanzar();
         }
         if (key == 'd' || key == KEY_RIGHT)
         {
-            //nave->CambiarDireccion();
+            nave->CambiarDireccion();
         }
         if (key== ' ')
         {
-            // Proyectil* p = new Proyectil(->LeerPosicion());
-            // dibujos.push_back();
-            // actualizables.push_back();
+            Proyectil* p = new Proyectil(nave->LeerPosicion());
+            dibujos.push_back(p);
+            actualizables.push_back(p);
         }
         
         ventana->Dibujar(dibujos);

@@ -9,20 +9,14 @@ using namespace std;
 class Proyectil : public Dibujo, public Actualizable
 {
 private:
-    /* data */
+    int tiempoVida;
 public:
-    Proyectil() : Dibujo("Proyectil")
+    Proyectil(Vector posicion) : Dibujo(posicion.LeerX(), posicion.LeerY(), "proyectil")
     {
-        this->posicion = Vector();
+        this->tiempoVida = 100;
     }
 
-    Proyectil(int x, int y) : Dibujo("Proyectil")
-    {
-        this->posicion.DesplazarX(x);
-        this->posicion.DesplazarY(y);
-    }
-
-    ~Proyectil() {}
+    ~Proyectil(){}
 
     void Actualizar()
     {
