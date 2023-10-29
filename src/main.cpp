@@ -16,13 +16,13 @@ int main(int argc, char const *argv[])
 {
     //Objetos
     Ventana *ventana = new Ventana();
-    Nave *nave = new Nave(18, 20);
+    Nave *nave = new Nave(18, 10);
     Alien *alien1 = new Alien();
     Alien *alien2 = new Alien(10, 0);
     Alien *alien3 = new Alien(20, 0);
     Alien *alien4 = new Alien(30, 0);
-    Barrera *barrera1 = new Barrera(8, 10);
-    Barrera *barrera2 = new Barrera(22, 10);
+    Barrera *barrera1 = new Barrera(8, 4);
+    Barrera *barrera2 = new Barrera(22, 4);
 
     //Lista de dibujos
     list<Dibujo *> dibujos;
@@ -37,20 +37,20 @@ int main(int argc, char const *argv[])
     //Lista de actualizables
     list<Actualizable *> actualizables;
     actualizables.push_back(alien1);
-    actualizables.push_back(alien2);
-    actualizables.push_back(alien3);
-    actualizables.push_back(alien4);
+    // actualizables.push_back(alien2);
+    // actualizables.push_back(alien3);
+    // actualizables.push_back(alien4);
 
     while (!ventana->DeboCerrar())
     {
         int key = getch();
         if (key == 'a' || key == KEY_LEFT)
         {
-            nave->Avanzar();
+            nave->CambiarDireccion();
         }
         if (key == 'd' || key == KEY_RIGHT)
         {
-            nave->CambiarDireccion();
+            nave->Avanzar();
         }
         if (key== ' ')
         {

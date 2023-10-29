@@ -44,12 +44,12 @@ public:
 
     void DesplazarX(unsigned int x)
     {
-        this->x = x * this->direccion_x;
+        this->x += x * this->direccion_x;
     }
 
     void DesplazarY(unsigned int y)
     {
-        this->y = y * this->direccion_y;
+        this->y += y * this->direccion_y;
     }
 
     int LeerX()

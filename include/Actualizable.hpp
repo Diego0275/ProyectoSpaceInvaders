@@ -6,5 +6,5 @@ private:
 public:
     Actualizable() {}
     ~Actualizable() {}
-    virtual void Actualizar() {}
+    virtual void Actualizar()=0;
 };

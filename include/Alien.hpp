@@ -27,6 +27,6 @@ public:
     void Actualizar()
     {
         this->posicion.DesplazarX(1);
-        this->posicion.CambiarDireccionX();
+        //this->posicion.CambiarDireccionX();
     }
 };

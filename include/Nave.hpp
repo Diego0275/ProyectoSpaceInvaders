@@ -32,7 +32,6 @@ public:
     void CambiarDireccion()
     {
         this->posicion.CambiarDireccionX();
-        this->posicion.DesplazarX(1);
     }
 
     Vector LeerPosicion()
